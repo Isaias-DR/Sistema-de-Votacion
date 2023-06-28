@@ -1,0 +1,18 @@
+.divTable{
+	display: table;
+	width: 25rem;
+}
+.divTableRow {
+	display: table-row;
+}
+.divTableCell {
+	display: table-cell;
+	padding: .2rem;
+}
+.divTableHeading .divTableFoot {
+	display: table-header-group;
+	font-weight: bold;
+}
+.divTableBody {
+	display: table-row-group;
+}
