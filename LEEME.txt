@@ -1,0 +1,4 @@
+Versiónes:
+
+PHP: 5.5
+Base de datos (PostgresSQL): 16
