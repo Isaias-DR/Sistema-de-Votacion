@@ -2,7 +2,6 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
 
-
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
     // Maneja el caso en que no se haya recibido una solicitud POST

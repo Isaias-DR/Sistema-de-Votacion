@@ -2,7 +2,6 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
 
-
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
     // Maneja el caso en que no se haya recibido una solicitud POST
@@ -24,14 +23,12 @@ $txtNosotros = $data["txtNosotros"];
 
 // Transformar los datos
 
-// Obtener el nombre apellido separadamenta en variables
-
+// 1 - Obtener el nombre apellido separadamenta en variables
 $textos = explode(" ", $txtNombreApellido);
 $nombre = $textos[0];
 $apellido = $textos[1];
 
-// Obtener los numeros y el dígito verificador del RUT
-
+// 2 - Obtener los numeros y el dígito verificador del RUT
 $partesRut = explode("-", $txtRut);
 $rutNumber = intval(str_replace(".", "", $partesRut[0]));
 $rutDv = $partesRut[1];
@@ -43,7 +40,7 @@ $database = new ConexionPosrgreSql();
 $pdo = $database->obtenerConexion();
 
 // Consulta SQL INSERT
-$sql = "INSERT INTO voto (nombre, apellido, alias, rut, dv, email, region, comuna, candidato, nosotros) VALUES (:nombre, :apellido , :alias, :rut, :dv, :email, :region, :comuna, :candidato, :nosotros)";
+$sql = "INSERT INTO voto (nombre, apellido, alias, rut, dv, email, region, comuna, candidato) VALUES (:nombre, :apellido , :alias, :rut, :dv, :email, :region, :comuna, :candidato)";
 
 // Preparar la consulta
 $stmt = $pdo->prepare($sql);
@@ -56,24 +53,45 @@ $stmt->bindParam(':email', $txtEmail, PDO::PARAM_STR);
 $stmt->bindParam(':region', $txtRegion, PDO::PARAM_INT);
 $stmt->bindParam(':comuna', $txtComuna, PDO::PARAM_INT);
 $stmt->bindParam(':candidato', $txtCandidato, PDO::PARAM_INT);
-$stmt->bindParam(':nosotros', $txtNosotros, PDO::PARAM_INT);
 
 // Ejecutar la consulta
 if ($stmt->execute()) {
-    $respuesta = [
-        'mensajeMS' => 'exito',
-        'datos' => [
-            'mensaje' => 'Registro insertado con éxito'
-        ]
-    ];
+
+    $mensajeMS = 'exito';
+    $mensaje = 'Registro insertado con éxito';
+
 } else {
-    $respuesta = [
-        'mensajeMS' => 'error',
-        'datos' => [
-            'mensaje' => 'Error al insertar el registro'
-        ]
-    ];
+
+    $mensajeMS = 'error';
+    $mensaje = 'Error al insertar el registro tabla Voto';
 }
+
+foreach ($txtNosotros as &$id_nosotroN) {
+    
+    $sql2 = "INSERT INTO nosotro (id_rut, id_nosotro) VALUES (:id_rut, :id_nosotro)";
+    $stmt2 = $pdo->prepare($sql2);
+    $stmt2->bindParam(':id_rut', $rutNumber, PDO::PARAM_INT);
+    $stmt2->bindParam(':id_nosotro', $id_nosotroN, PDO::PARAM_INT);
+    
+    // Ejecutar la consulta
+    if ($stmt2->execute()) {
+    
+        $mensajeMS = 'exito';
+        $mensaje = 'Registro insertado con éxito';
+    
+    } else {
+    
+        $mensajeMS = 'error';
+        $mensaje = 'Error al insertar el registro en la tabla Nosotro';
+    }
+}
+
+$respuesta = [
+    'mensajeMS' => $mensajeMS,
+    'datos' => [
+        'mensaje' => $mensaje
+    ]
+];
 
 $database->destruirConexion();
 

@@ -3,8 +3,10 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta id="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VOTACIÓN</title>
+  <meta name="author" content="Isaías Díaz Rojas" />
+  <meta name="copyright" content="Isaías Díaz Rojas" />
+  <meta name="description" content="Formulario para el registro de votos." />
+  <title>Votación</title>
   <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -60,7 +62,7 @@
         <div class="divTableCell">Comuna</div>
         <div class="divTableCell">
           <select id="txtComuna">
-            <option value="0">Seleccione</option>
+            <option value="0">Seleccione una región</option>
           </select>
           <label id="msgComuna"></label>
         </div>
@@ -77,10 +79,10 @@
       <div class="divTableRow">
         <div class="divTableCell">Como se enteró de Nosotros</div>
         <div class="divTableCell">
-          <input type="checkbox" id="txtNosotros" value="first_checkbox">Web</label>
-          <input type="checkbox" id="txtNosotros" value="first_checkbox">TV</label>
-          <input type="checkbox" id="txtNosotros" value="first_checkbox">Redes sociales</label>
-          <input type="checkbox" id="txtNosotros" value="first_checkbox">Amigo</label>
+          <label><input type="checkbox" name="txtNosotros" value="1">Web</label>
+          <label><input type="checkbox" name="txtNosotros" value="2">TV</label>
+          <label><input type="checkbox" name="txtNosotros" value="3">Redes sociales</label>
+          <label><input type="checkbox" name="txtNosotros" value="4">Amigo</label>
           <label class="divTableCell" id="msg_nosotros"></label>
         </div>
       </div>

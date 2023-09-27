@@ -10,11 +10,11 @@ export const obtenerComunas = async () => {
 
     const listaComunas = await enviarYObtenerRespuesta('POST', { idRegion }, 'comuna/listarComunas.php');
 
-    console.log(listaComunas);
+    // console.log(listaComunas);
 
     inicializarElementoSelect('txtComuna');
 
-    inicializarSelect('txtComuna');
+    inicializarSelect('txtComuna', 'una región');
 
     listarSelect('txtComuna', listaComunas, 'comuna');
 }

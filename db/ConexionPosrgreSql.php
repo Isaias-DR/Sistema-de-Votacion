@@ -11,8 +11,16 @@ class ConexionPosrgreSql
     // Puente a la base de datos
     function __construct()
     {
-        $this->pdo = new PDO("pgsql:host=$this->host;dbname=$this->database", $this->user, $this->password);
-        $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        try {
+
+            $this->pdo = new PDO("pgsql:host=$this->host;dbname=$this->database", $this->user, $this->password);
+            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        } catch (PDOException $e) {
+            
+            echo "Error de conexión a PostgreSQL: " . $e->getMessage();
+            die();
+        }
     }
 
     // Retorna datos solicitados

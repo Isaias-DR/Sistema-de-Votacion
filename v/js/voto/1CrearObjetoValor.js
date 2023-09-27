@@ -1,25 +1,24 @@
-import { obtenerValor } from "../util/obtenerValor.js";
+import { obtenerValor, obtenerValoresCheckBox } from "../util/obtenerValor.js";
+import { ambiente } from "../ambiente/constantes.js";
 
 export const crearObjetoValor = () => {
 
-  const prueba =
-    true
-    // false
   let valor = {}
 
-  if (prueba) {
+  if (ambiente === 'desarrollo') {
     valor = {
       txtNombreApellido: 'Isaías Díaz',
       txtAlias: 'Isa_123',
-      txtRut: '19.014.215-9',
+      txtRut: obtenerValor("txtRut"),
       txtEmail: 'isaias@desis.cl',
       txtRegion: 1,
       txtComuna: 2,
       txtCandidato: 3,
-      txtNosotros: 4
+      txtNosotros: [4,5]
     }
-  } else {
+  }
 
+  if (ambiente === 'producción'){
     valor = {
       txtNombreApellido: obtenerValor("txtNombreApellido"),
       txtAlias: obtenerValor("txtAlias"),
@@ -28,7 +27,7 @@ export const crearObjetoValor = () => {
       txtRegion: obtenerValor("txtRegion"),
       txtComuna: obtenerValor("txtComuna"),
       txtCandidato: obtenerValor("txtCandidato"),
-      txtNosotros: obtenerValor("txtNosotros")
+      txtNosotros: obtenerValoresCheckBox("txtNosotros")
     }
   }
 

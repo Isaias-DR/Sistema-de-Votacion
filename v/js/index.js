@@ -4,10 +4,7 @@ import { obtenerRegiones } from "./region/listarRegiones.js";
 import { obtenerComunas } from "./comuna/listarComunas.js";
 import { listarCandidatos } from "./candidato/listarCandidatos.js";
 
-const inicio = (()=>{
-  obtenerRegiones()  
-  ,listarCandidatos()
-})()
+const inicio = (()=>{obtenerRegiones(),listarCandidatos()})()
 
 obtenerValorId("btnVotar").addEventListener("click", enviar_voto_del_formulario);
 

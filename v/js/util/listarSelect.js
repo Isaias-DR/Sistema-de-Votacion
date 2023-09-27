@@ -18,7 +18,7 @@ export const inicializarElementoSelect = (nombreCampo) => {
   }
 }
 
-export const inicializarSelect = (nombreCampo) => {
+export const inicializarSelect = (nombreCampo, nombreAgregado) => {
 
-  obtenerValorId(nombreCampo).insertAdjacentHTML('beforeend', '<option value="0">Seleccione</option>')
+  obtenerValorId(nombreCampo).insertAdjacentHTML('beforeend', `<option value="0">Seleccione ${nombreAgregado}</option>`);
 }
