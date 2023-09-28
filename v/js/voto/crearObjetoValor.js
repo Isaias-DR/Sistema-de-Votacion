@@ -14,11 +14,11 @@ export const crearObjetoValor = () => {
       txtRegion: 1,
       txtComuna: 2,
       txtCandidato: 3,
-      txtNosotros: [4,5]
+      txtNosotros: [4, 5]
     }
   }
 
-  if (ambiente === 'producción'){
+  if (ambiente === 'producción') {
     valor = {
       txtNombreApellido: obtenerValor("txtNombreApellido"),
       txtAlias: obtenerValor("txtAlias"),

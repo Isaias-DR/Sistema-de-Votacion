@@ -1,9 +1,9 @@
-import { crearObjetoValor } from './1CrearObjetoValor.js'
-import { mostrarMensajesValidados } from './2MostrarMensajesValidados.js'
-import { crearObjeto } from './3CrearObjeto.js'
-import { mostrarMensajeDelResultado } from './4MostrarMensajeDelResultado.js'
+import { crearObjetoValor } from './crearObjetoValor.js'
+import { mostrarMensajesValidados } from './mostrarMensajesValidados.js'
+import { crearObjeto } from './crearObjeto.js'
+import { mostrarMensajeDelResultado } from '../util/mostrarMensajeDelResultado.js'
 
-export const enviar_voto_del_formulario = async () => {
+export const enviarVotoDelFormulario = async () => {
 
   // 1 - Obtener los valores
   const valores = crearObjetoValor()

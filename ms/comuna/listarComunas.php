@@ -4,8 +4,8 @@ header("Content-Type: application/json");
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
-    // Maneja el caso en que no se haya recibido una solicitud POST
-    echo 'Acceso denegado';
+  // Maneja el caso en que no se haya recibido una solicitud POST
+  echo 'Acceso denegado';
 }
 
 // Lee los datos enviados por AJAX como una cadena JSON y conviértelos en un array asociativo
@@ -18,7 +18,7 @@ require_once('../../db/ConexionMySql.php');
 
 $database = new ConexionMySql();
 
-$sql = 'SELECT com.id, com.comuna FROM comunas AS com JOIN provincias AS pro ON pro.id = com.provincia_id JOIN regiones AS reg ON reg.id = pro.region_id WHERE reg.id = '.$idRegion.' ORDER BY com.comuna';
+$sql = 'SELECT com.id, com.comuna FROM comunas AS com JOIN provincias AS pro ON pro.id = com.provincia_id JOIN regiones AS reg ON reg.id = pro.region_id WHERE reg.id = ' . $idRegion . ' ORDER BY com.comuna';
 
 $datos = $database->consulta($sql);
 
@@ -26,19 +26,19 @@ $datos_comunas = array();
 
 while ($row = mysqli_fetch_object($datos)) {
 
-    // $row contiene cada fila como un objeto
-    $datos_comunas[] = $row;
+  // $row contiene cada fila como un objeto
+  $datos_comunas[] = $row;
 }
 
 if ($datos->num_rows > 0) {
-    $mensaje = 'exito';
+  $mensaje = 'exito';
 } else {
-    $mensaje = 'sin datos';
+  $mensaje = 'sin datos';
 }
 
 $respuesta = [
-    'mensajeMS' => $mensaje,
-    'datos' => $datos_comunas
+  'mensajeMS' => $mensaje,
+  'datos' => $datos_comunas
 ];
 
 $database->cerrarConexion();

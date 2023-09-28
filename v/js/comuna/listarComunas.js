@@ -1,20 +1,20 @@
 import { obtenerValor } from "../util/obtenerValor.js";
-import { enviarYObtenerRespuesta } from "../voto/3.2ObtenerRespuesta.js";
+import { enviarValoresFetch } from "../util/obtenerRespuesta.js";
 import { inicializarElementoSelect, inicializarSelect, listarSelect } from "../util/listarSelect.js";
 
 export const obtenerComunas = async () => {
 
-    const idRegion = parseInt(obtenerValor('txtRegion'));
+  const idRegion = parseInt(obtenerValor('txtRegion'));
 
-    if(idRegion === 0) return;
+  inicializarElementoSelect('txtComuna');
 
-    const listaComunas = await enviarYObtenerRespuesta('POST', { idRegion }, 'comuna/listarComunas.php');
+  inicializarSelect('txtComuna', 'una región');
 
-    // console.log(listaComunas);
+  if (idRegion === 0) return;
 
-    inicializarElementoSelect('txtComuna');
+  const listaComunas = await enviarValoresFetch('POST', { idRegion }, 'comuna/listarComunas.php');
 
-    inicializarSelect('txtComuna', 'una región');
+  // console.log(listaComunas);
 
-    listarSelect('txtComuna', listaComunas, 'comuna');
+  listarSelect('txtComuna', listaComunas, 'comuna');
 }

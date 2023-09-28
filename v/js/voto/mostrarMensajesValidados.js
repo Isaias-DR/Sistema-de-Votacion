@@ -7,7 +7,7 @@ import {
   validarFormatoRUT,
   validarDVRUT,
   validarCorreo
-} from "./2.1ValidarValores.js";
+} from "../util/validarValores.js";
 
 export const mostrarMensajesValidados = (
   {

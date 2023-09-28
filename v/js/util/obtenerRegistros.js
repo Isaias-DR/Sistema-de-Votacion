@@ -1,8 +1,8 @@
-import { enviarYObtenerRespuesta } from "../voto/3.2ObtenerRespuesta.js";
+import { enviarValoresFetch } from "./obtenerRespuesta.js";
 
 export const obtenerRegistros = async (nombreArchivo) => {
-  
-  const respuesta = await enviarYObtenerRespuesta('GET', {}, nombreArchivo+'.php');
+
+  const respuesta = await enviarValoresFetch('GET', {}, nombreArchivo + '.php');
 
   return respuesta;
 }

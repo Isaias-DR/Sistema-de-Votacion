@@ -4,8 +4,8 @@ header("Content-Type: application/json");
 
 if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 
-    // Maneja el caso en que no se haya recibido una solicitud POST
-    echo 'Acceso denegado';
+  // Maneja el caso en que no se haya recibido una solicitud POST
+  echo 'Acceso denegado';
 }
 
 require_once('../../db/ConexionMySql.php');
@@ -19,20 +19,20 @@ $datos = $database->consulta($sql);
 $datos_regiones = array();
 
 while ($row = mysqli_fetch_object($datos)) {
-    
-    // $row contiene cada fila como un objeto
-    $datos_regiones[] = $row;
+
+  // $row contiene cada fila como un objeto
+  $datos_regiones[] = $row;
 }
 
 if ($datos->num_rows > 0) {
-    $mensaje = 'exito';
+  $mensaje = 'exito';
 } else {
-    $mensaje = 'sin datos';
+  $mensaje = 'sin datos';
 }
 
 $respuesta = [
-    'mensajeMS' => $mensaje,
-    'datos' => $datos_regiones
+  'mensajeMS' => $mensaje,
+  'datos' => $datos_regiones
 ];
 
 $database->cerrarConexion();

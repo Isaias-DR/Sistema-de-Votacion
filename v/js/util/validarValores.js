@@ -46,7 +46,7 @@ export const saberDVRUT = (rut) => {
 export const validarDVRUT = (rutCompleto) => {
 
   let tmp = rutCompleto.split('-');
-  let rut = tmp[0].replaceAll(".","");
+  let rut = tmp[0].replaceAll(".", "");
   let dv = tmp[1];
   if (dv == 'K') dv = 'k';
 

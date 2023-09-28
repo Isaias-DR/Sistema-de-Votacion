@@ -1,35 +1,35 @@
 .divTable {
-	display: table;
+  display: table;
 }
 
 .divTableRow {
-	display: table-row;
+  display: table-row;
 }
 
 .divTableCell {
-	display: table-cell;
-	padding: .2rem;
+  display: table-cell;
+  padding: .2rem;
 }
 
 .divTableHeading .divTableFoot {
-	display: table-header-group;
-	font-weight: bold;
+  display: table-header-group;
+  font-weight: bold;
 }
 
 .divTableBody {
-	display: table-row-group;
+  display: table-row-group;
 }
 
 select {
-	width: 177px;
-	height: 21px;
-	padding: 2px 3px 2px 3px;
-	border: 1px 1px 1px 1px;
-	
-	/* background: transparent;
-	border: none;
-	font-size: 14px;
-	height: 30px;
-	padding: 5px;
-	width: 250px; */
+  width: 177px;
+  height: 21px;
+  padding: 2px 3px 2px 3px;
+  border: 1px 1px 1px 1px;
+
+  /* background: transparent;
+  border: none;
+  font-size: 14px;
+  height: 30px;
+  padding: 5px;
+  width: 250px; */
 }
