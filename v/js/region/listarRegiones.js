@@ -8,5 +8,5 @@ export const obtenerRegiones = async () => {
 
   // console.log(listaRegiones);
   
-  if (validarSiContinuar(listaRegiones)) listarSelect('txtRegion', listaRegiones, 'id', 'region');
+  if (validarSiContinuar(listaRegiones)) listarSelect('optRegion', listaRegiones, 'id', 'region');
 }

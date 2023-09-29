@@ -52,38 +52,38 @@
       <div class="divTableRow">
         <div class="divTableCell">Región</div>
         <div class="divTableCell">
-          <select id="txtRegion">
+          <select id="optRegion">
             <option value="0">Seleccione</option>
           </select>
-          <label id="msgRegion"></label>
+          <label id="msgRegion1"></label>
         </div>
       </div>
       <div class="divTableRow">
         <div class="divTableCell">Comuna</div>
         <div class="divTableCell">
-          <select id="txtComuna">
+          <select id="optComuna">
             <option value="0">Seleccione una región</option>
           </select>
-          <label id="msgComuna"></label>
+          <label id="msgComuna1"></label>
         </div>
       </div>
       <div class="divTableRow">
         <div class="divTableCell">Candidato</div>
         <div class="divTableCell">
-          <select id="txtCandidato">
+          <select id="optCandidato">
             <option value="0">Seleccione</option>
           </select>
-          <label id="msgCandidato"></label>
+          <label id="msgCandidato1"></label>
         </div>
       </div>
       <div class="divTableRow">
         <div class="divTableCell">Como se enteró de Nosotros</div>
         <div class="divTableCell">
-          <label><input type="checkbox" name="txtNosotros" value="1">Web</label>
-          <label><input type="checkbox" name="txtNosotros" value="2">TV</label>
-          <label><input type="checkbox" name="txtNosotros" value="3">Redes sociales</label>
-          <label><input type="checkbox" name="txtNosotros" value="4">Amigo</label>
-          <label class="divTableCell" id="msg_nosotros"></label>
+          <label><input type="checkbox" name="chkNosotros" value="1">Web</label>
+          <label><input type="checkbox" name="chkNosotros" value="2">TV</label>
+          <label><input type="checkbox" name="chkNosotros" value="3">Redes sociales</label>
+          <label><input type="checkbox" name="chkNosotros" value="4">Amigo</label>
+          <label id="msgNosotros1"></label>
         </div>
       </div>
     </div>

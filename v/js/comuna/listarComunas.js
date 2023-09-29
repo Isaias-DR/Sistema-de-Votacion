@@ -5,11 +5,11 @@ import { validarSiContinuar } from "../util/mostrarMensajeDelResultado.js";
 
 export const obtenerComunas = async () => {
 
-  const idRegion = parseInt(obtenerValor('txtRegion'));
+  const idRegion = parseInt(obtenerValor('optRegion'));
 
-  inicializarElementoSelect('txtComuna');
+  inicializarElementoSelect('optComuna');
 
-  inicializarSelect('txtComuna', 'una región');
+  inicializarSelect('optComuna', 'una región');
 
   if (idRegion === 0) return;
 
@@ -17,5 +17,5 @@ export const obtenerComunas = async () => {
 
   // console.log(listaComunas);
 
-  if(validarSiContinuar(listaComunas)) listarSelect('txtComuna', listaComunas, 'id', 'comuna');
+  if(validarSiContinuar(listaComunas)) listarSelect('optComuna', listaComunas, 'id', 'comuna');
 }

@@ -13,7 +13,7 @@ export const validarSiContinuar = ({ mensaje, dato }) => {
 
 export const mostrarMensajeDelResultado = ({ mensaje, dato }) => {
 
-  if (mensaje === 'exito' && mostrarMensaje) return alert(dato.datos.mensaje);
+  if (mensaje === 'exito') return alert(dato.datos.mensaje);
 
   return console.warn('Hay una condición en el método "mostrarMensajeDelResultado" del archivo "4_mostrar_mensaje_del_resultado.js" que no es considerada.')
 }

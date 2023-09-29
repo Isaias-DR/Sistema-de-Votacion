@@ -60,3 +60,22 @@ export const validarCorreo = (correo) => {
 
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo);
 }
+
+
+// 2.2.5 - Región, Comuna // TODO: Implementar como mejora al Candidato
+
+export const validarSelect = (idSeleccionado) => {
+
+  return parseInt(idSeleccionado) !== 0;
+}
+
+
+// Nosotros
+
+export const validarNosotros = (arraySelección) => {
+
+  return arraySelección.length >= 2;
+}
+
+
+//

@@ -2,7 +2,7 @@ export const obtenerValorId = (elemento) => {
 
   return document.getElementById(elemento);
 }
-export const obtenerValoresId = (elemento) => {
+export const obtenerValoresName = (elemento) => {
 
   return document.querySelectorAll('input[type="checkbox"][name="' + elemento + '"]');
 }
@@ -15,15 +15,15 @@ export const obtenerValor = (elemento) => {
 export const obtenerValoresCheckBox = (elemento) => {
 
   // Obtener todos los elementos de checkbox
-  var checkboxes = obtenerValoresId(elemento);
+  var checkboxes = obtenerValoresName(elemento);
 
   // Crear un array para almacenar los valores seleccionados
   var valoresSeleccionados = [];
 
   // Iterar a través de los checkboxes y verificar cuáles están seleccionados
-  checkboxes.forEach(function (checkbox) {
+  checkboxes.forEach((checkbox) => {
     if (checkbox.checked) {
-      valoresSeleccionados.push(checkbox.value);
+      valoresSeleccionados.push(parseInt(checkbox.value));
     }
   });
 

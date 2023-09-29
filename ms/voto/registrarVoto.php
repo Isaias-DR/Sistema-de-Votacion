@@ -16,10 +16,10 @@ $txtNombreApellido = $data["txtNombreApellido"];
 $txtAlias = $data["txtAlias"];
 $txtRut = $data["txtRut"];
 $txtEmail = $data["txtEmail"];
-$txtRegion = $data["txtRegion"];
-$txtComuna = $data["txtComuna"];
-$txtCandidato = $data["txtCandidato"];
-$txtNosotros = $data["txtNosotros"];
+$optRegion = $data["optRegion"];
+$optComuna = $data["optComuna"];
+$optCandidato = $data["optCandidato"];
+$chkNosotros = $data["chkNosotros"];
 
 // Transformar los datos
 
@@ -33,7 +33,7 @@ $partesRut = explode("-", $txtRut);
 $rutNumber = intval(str_replace(".", "", $partesRut[0]));
 $rutDv = $partesRut[1];
 
-require_once('../../db/ConexionPotrgreSql.php');
+require_once('../../db/ConexionPostgreSql.php');
 
 $database = new ConexionPostgreSql();
 
@@ -83,9 +83,9 @@ $stmt->bindParam(':alias', $txtAlias, PDO::PARAM_STR);
 $stmt->bindParam(':rut', $rutNumber, PDO::PARAM_INT);
 $stmt->bindParam(':dv', $rutDv, PDO::PARAM_STR);
 $stmt->bindParam(':email', $txtEmail, PDO::PARAM_STR);
-$stmt->bindParam(':region', $txtRegion, PDO::PARAM_INT);
-$stmt->bindParam(':comuna', $txtComuna, PDO::PARAM_INT);
-$stmt->bindParam(':fk_candidato', $txtCandidato, PDO::PARAM_INT);
+$stmt->bindParam(':region', $optRegion, PDO::PARAM_INT);
+$stmt->bindParam(':comuna', $optComuna, PDO::PARAM_INT);
+$stmt->bindParam(':fk_candidato', $optCandidato, PDO::PARAM_INT);
 
 // Ejecutar la consulta
 if ($stmt->execute()) {
@@ -98,7 +98,7 @@ if ($stmt->execute()) {
   $mensaje = 'Error al insertar el registro tabla Voto';
 }
 
-foreach ($txtNosotros as &$id_nosotro) {
+foreach ($chkNosotros as &$id_nosotro) {
 
   // $sql2 = "INSERT INTO nosotro (id_rut, id_nosotro) VALUES (:id_rut, :id_nosotro)";
   $sql2 = "SELECT insertar_voto_nosotro(:id_rut, :id_nosotro)";

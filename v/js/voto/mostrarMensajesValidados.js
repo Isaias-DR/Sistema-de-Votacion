@@ -6,7 +6,9 @@ import {
   validarInclusiónNúmero,
   validarFormatoRUT,
   validarDVRUT,
-  validarCorreo
+  validarCorreo,
+  validarSelect,
+  validarNosotros
 } from "../util/validarValores.js";
 
 export const mostrarMensajesValidados = (
@@ -15,10 +17,10 @@ export const mostrarMensajesValidados = (
     txtAlias,
     txtRut,
     txtEmail,
-    txtRegion,
-    txtComuna,
-    txtCandidato,
-    txtNosotros
+    optRegion,
+    optComuna,
+    optCandidato,
+    chkNosotros
   }
 ) => {
 
@@ -53,7 +55,7 @@ export const mostrarMensajesValidados = (
     document.getElementById('msgAlias1').innerHTML = 'No puede tener menos de 5 caracteres.';
     sonValidos = false;
   }
-  else{
+  else {
 
     document.getElementById('msgAlias1').innerHTML = '';
   }
@@ -79,7 +81,7 @@ export const mostrarMensajesValidados = (
   }
 
   // 2.3 - RUT
-  
+
   if (!validarFormatoRUT(txtRut)) {
 
     document.getElementById('msgRut1').innerHTML = 'Tiene que tener formato del RUT de Chile, ejemplo: "12.345.678-K".';
@@ -110,6 +112,45 @@ export const mostrarMensajesValidados = (
   else {
 
     document.getElementById('msgEmail1').innerHTML = '';
+  }
+
+  // Región
+  
+  if (!validarSelect(optRegion)) {
+
+    document.getElementById('msgRegion1').innerHTML = 'Seleccione una región.';
+    sonValidos = false;
+  }
+  else {
+
+    document.getElementById('msgRegion1').innerHTML = '';
+  }
+
+  // Comuna
+  if (!validarSelect(optComuna)) {
+
+    document.getElementById('msgComuna1').innerHTML = 'Seleccione una comuna.';
+    sonValidos = false;
+  }
+  else {
+
+    document.getElementById('msgComuna1').innerHTML = '';
+  }
+
+  // Candidato
+  // TODO: Desarrollar como mejora
+
+
+  // Nosotros
+
+  if (!validarNosotros(chkNosotros)) {
+
+    document.getElementById('msgNosotros1').innerHTML = '- Tiene que haver seleccionado almenos 2 opciones.';
+    sonValidos = false;
+  }
+  else {
+
+    document.getElementById('msgNosotros1').innerHTML = '';
   }
 
   return sonValidos;

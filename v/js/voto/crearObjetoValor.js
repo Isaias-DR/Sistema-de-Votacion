@@ -11,10 +11,10 @@ export const crearObjetoValor = () => {
       txtAlias: 'Isa_123',
       txtRut: obtenerValor("txtRut"),
       txtEmail: 'isaias@desis.cl',
-      txtRegion: 1,
-      txtComuna: 2,
-      txtCandidato: 3,
-      txtNosotros: [4, 5]
+      optRegion: 1,
+      optComuna: 2,
+      optCandidato: 3,
+      chkNosotros: [4, 5]
     }
   }
 
@@ -24,10 +24,10 @@ export const crearObjetoValor = () => {
       txtAlias: obtenerValor("txtAlias"),
       txtRut: obtenerValor("txtRut"),
       txtEmail: obtenerValor("txtEmail"),
-      txtRegion: obtenerValor("txtRegion"),
-      txtComuna: obtenerValor("txtComuna"),
-      txtCandidato: obtenerValor("txtCandidato"),
-      txtNosotros: obtenerValoresCheckBox("txtNosotros")
+      optRegion: obtenerValor("optRegion"),
+      optComuna: obtenerValor("optComuna"),
+      optCandidato: obtenerValor("optCandidato"),
+      chkNosotros: obtenerValoresCheckBox("chkNosotros")
     }
   }
 
