@@ -1,4 +1,4 @@
-import { directorioMicroServicio } from "../ambiente/constantes.js";
+import { DIRECTORIO_MICRO_SERVICIO } from "../AMBIENTE/constantes.js";
 
 export const enviarValoresFetch = async (nombreMetodo, valores, nombreArchivoMicroServicio) => {
 
@@ -19,7 +19,7 @@ export const enviarValoresFetch = async (nombreMetodo, valores, nombreArchivoMic
     }
 
     // Consultar al servicio
-    const response = await fetch(directorioMicroServicio + nombreArchivoMicroServicio, request);
+    const response = await fetch(DIRECTORIO_MICRO_SERVICIO + nombreArchivoMicroServicio, request);
 
     if (!response.ok) {
 

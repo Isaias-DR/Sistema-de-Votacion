@@ -1,11 +1,11 @@
 import { obtenerValor, obtenerValoresCheckBox } from "../util/obtenerValor.js";
-import { ambiente } from "../ambiente/constantes.js";
+import { AMBIENTE } from "../AMBIENTE/constantes.js";
 
 export const crearObjetoValor = () => {
 
   let valor = {}
 
-  if (ambiente === 'desarrollo') {
+  if (AMBIENTE === 'desarrollo') {
     valor = {
       txtNombreApellido: 'Isaías Díaz',
       txtAlias: 'Isa_123',
@@ -18,7 +18,7 @@ export const crearObjetoValor = () => {
     }
   }
 
-  if (ambiente === 'producción') {
+  if (AMBIENTE === 'producción') {
     valor = {
       txtNombreApellido: obtenerValor("txtNombreApellido"),
       txtAlias: obtenerValor("txtAlias"),
