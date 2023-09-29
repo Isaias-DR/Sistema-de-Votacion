@@ -1,11 +1,12 @@
 <?php
 
-class ConexionPosrgreSql
+class ConexionPostgreSql
 {
   private $host = 'localhost';
-  private $database = 'desis';
+  private $database = 'desiss';
   private $user = 'postgres';
   private $password = 'root';
+  private $isConnected = false;
   private $pdo;
 
   // Puente a la base de datos
@@ -15,12 +16,18 @@ class ConexionPosrgreSql
 
       $this->pdo = new PDO("pgsql:host=$this->host;dbname=$this->database", $this->user, $this->password);
       $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $this->isConnected = true;
       
     } catch (PDOException $e) {
 
-      echo "Error de conexión a PostgreSQL: " . $e->getMessage();
-      die();
+      //echo "Error de conexión a PostgreSQL: " . $e->getMessage();
+      //die();
     }
+  }
+
+  public function isConnected()
+  {
+    return $this->isConnected;
   }
 
   // Retorna datos solicitados

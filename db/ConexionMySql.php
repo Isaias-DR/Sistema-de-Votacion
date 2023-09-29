@@ -23,6 +23,7 @@ class ConexionMySql
 
       // Aquí manejamos la excepción
       //echo "No se pudo establecer la conexión: " . $e->getMessage();
+      //die();
     }
   }
 

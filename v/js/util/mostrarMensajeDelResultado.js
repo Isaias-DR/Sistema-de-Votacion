@@ -8,7 +8,6 @@ export const validarSiContinuar = ({ mensaje, dato }) => {
     return false, console.warn(dato);
   if (dato.mensajeMS === 'validación')
     return false, alert(dato.datos.mensaje);
-
   return true;
 }
 

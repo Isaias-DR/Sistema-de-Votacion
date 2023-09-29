@@ -26,6 +26,7 @@ if ($database->isConnected() === false) {
   ];
 
   echo json_encode($respuesta);
+  die();
 }
 
 $sql = 'SELECT com.id, com.comuna FROM comunas AS com JOIN provincias AS pro ON pro.id = com.provincia_id JOIN regiones AS reg ON reg.id = pro.region_id WHERE reg.id = ' . $idRegion . ' ORDER BY com.comuna';

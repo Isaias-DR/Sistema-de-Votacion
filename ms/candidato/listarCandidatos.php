@@ -8,21 +8,21 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
   echo 'Acceso denegado';
 }
 
-require_once('../../db/ConexionPosrgreSql.php');
+require_once('../../db/ConexionPostgreSql.php');
 
-$database = new ConexionPosrgreSql();
-/*
-TODO: continuar...
+$database = new ConexionPostgreSql();
+
 if ($database->isConnected() === false) {
 
   $respuesta = [
     'mensajeMS' => 'error conexión',
-    'datos' => 'No se ha podido conectar con la base de dato MySQL'
+    'datos' => 'No se ha podido conectar con la base de dato PostgreSQL'
   ];
 
   echo json_encode($respuesta);
+  die();
 }
-*/
+
 $pdo = $database->obtenerConexion();
 
 // Consulta SQL INSERT

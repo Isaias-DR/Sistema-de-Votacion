@@ -33,9 +33,20 @@ $partesRut = explode("-", $txtRut);
 $rutNumber = intval(str_replace(".", "", $partesRut[0]));
 $rutDv = $partesRut[1];
 
-require_once('../../db/ConexionPosrgreSql.php');
+require_once('../../db/ConexionPotrgreSql.php');
 
-$database = new ConexionPosrgreSql();
+$database = new ConexionPostgreSql();
+
+if ($database->isConnected() === false) {
+
+  $respuesta = [
+    'mensajeMS' => 'error conexión',
+    'datos' => 'No se ha podido conectar con la base de dato MySQL'
+  ];
+
+  echo json_encode($respuesta);
+  die();
+}
 
 $pdo = $database->obtenerConexion();
 
@@ -59,7 +70,6 @@ if ($stmt0->fetchColumn() > 0) {
   echo json_encode($respuesta);
   die();
 }
-
 
 // Consulta SQL INSERT
 // $sql = "INSERT INTO voto (nombre, apellido, alias, rut, dv, email, region, comuna, candidato) VALUES (:nombre, :apellido , :alias, :rut, :dv, :email, :region, :comuna, :candidato)";
