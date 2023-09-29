@@ -1,6 +1,7 @@
 import { obtenerValor } from "../util/obtenerValor.js";
-import { enviarValoresFetch } from "../util/obtenerRespuesta.js";
+import { enviarValoresFetch } from "../util/enviarValoresFetch.js";
 import { inicializarElementoSelect, inicializarSelect, listarSelect } from "../util/listarSelect.js";
+import { validarSiContinuar } from "../util/mostrarMensajeDelResultado.js";
 
 export const obtenerComunas = async () => {
 
@@ -16,5 +17,5 @@ export const obtenerComunas = async () => {
 
   // console.log(listaComunas);
 
-  listarSelect('txtComuna', listaComunas, 'comuna');
+  if(validarSiContinuar(listaComunas)) listarSelect('txtComuna', listaComunas, 'id', 'comuna');
 }

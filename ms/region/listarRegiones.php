@@ -12,6 +12,17 @@ require_once('../../db/ConexionMySql.php');
 
 $database = new ConexionMySql();
 
+if ($database->isConnected() === false) {
+
+  $respuesta = [
+    'mensajeMS' => 'error conexión',
+    'datos' => 'No se ha podido conectar con la base de dato MySQL'
+  ];
+
+  echo json_encode($respuesta);
+  die();
+}
+
 $sql = 'SELECT id, region FROM regiones';
 
 $datos = $database->consulta($sql);

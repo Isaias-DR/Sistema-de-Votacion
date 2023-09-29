@@ -1,4 +1,4 @@
-import { enviarValoresFetch } from '../util/obtenerRespuesta.js'
+import { enviarValoresFetch } from '../util/enviarValoresFetch.js'
 
 export const crearObjeto = async (sonValidos, valores) => {
 

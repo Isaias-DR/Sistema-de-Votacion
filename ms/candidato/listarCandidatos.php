@@ -11,11 +11,22 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 require_once('../../db/ConexionPosrgreSql.php');
 
 $database = new ConexionPosrgreSql();
+/*
+TODO: continuar...
+if ($database->isConnected() === false) {
 
+  $respuesta = [
+    'mensajeMS' => 'error conexión',
+    'datos' => 'No se ha podido conectar con la base de dato MySQL'
+  ];
+
+  echo json_encode($respuesta);
+}
+*/
 $pdo = $database->obtenerConexion();
 
 // Consulta SQL INSERT
-$sql = "SELECT id, nombre FROM candidato";
+$sql = "SELECT id_candidato, nombre FROM candidato";
 
 // Preparar la consulta
 $stmt = $pdo->prepare($sql);
@@ -31,6 +42,7 @@ if ($stmt->execute()) {
     'datos' => $registros
   ];
 } else {
+
   $respuesta = [
     'mensajeMS' => 'error',
     'datos' => [

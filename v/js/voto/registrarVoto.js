@@ -1,7 +1,7 @@
 import { crearObjetoValor } from './crearObjetoValor.js'
 import { mostrarMensajesValidados } from './mostrarMensajesValidados.js'
 import { crearObjeto } from './crearObjeto.js'
-import { mostrarMensajeDelResultado } from '../util/mostrarMensajeDelResultado.js'
+import { validarSiContinuar, mostrarMensajeDelResultado } from '../util/mostrarMensajeDelResultado.js'
 
 export const enviarVotoDelFormulario = async () => {
 
@@ -15,5 +15,5 @@ export const enviarVotoDelFormulario = async () => {
   const respuesta = await crearObjeto(sonValidos, valores)
 
   // 4 - Avisarle al votante del registro de su voto
-  mostrarMensajeDelResultado(respuesta)
+  if(validarSiContinuar(respuesta)) mostrarMensajeDelResultado(respuesta);
 }

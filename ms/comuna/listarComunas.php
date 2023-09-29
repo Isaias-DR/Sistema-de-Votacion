@@ -18,6 +18,16 @@ require_once('../../db/ConexionMySql.php');
 
 $database = new ConexionMySql();
 
+if ($database->isConnected() === false) {
+
+  $respuesta = [
+    'mensajeMS' => 'error conexión',
+    'datos' => 'No se ha podido conectar con la base de dato MySQL'
+  ];
+
+  echo json_encode($respuesta);
+}
+
 $sql = 'SELECT com.id, com.comuna FROM comunas AS com JOIN provincias AS pro ON pro.id = com.provincia_id JOIN regiones AS reg ON reg.id = pro.region_id WHERE reg.id = ' . $idRegion . ' ORDER BY com.comuna';
 
 $datos = $database->consulta($sql);

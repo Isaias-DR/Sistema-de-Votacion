@@ -5,5 +5,5 @@ export const listarCandidatos = async () => {
 
   const listaCandidatos = await obtenerRegistros('candidato/listarCandidatos');
 
-  listarSelect('txtCandidato', listaCandidatos, 'nombre')
+  listarSelect('txtCandidato', listaCandidatos, 'id_candidato', 'nombre')
 }

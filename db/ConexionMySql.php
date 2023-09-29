@@ -6,13 +6,29 @@ class ConexionMySql
   private $username = "root";
   private $password = "";
   private $database = "desis";
+  private $isConnected = false;
   private $link;
 
   // Puente a la base de datos
   function __construct()
   {
-    $this->link = mysqli_connect($this->server, $this->username, $this->password, $this->database);
-    $this->link->set_charset("utf8");
+
+    try {
+
+      $this->link = mysqli_connect($this->server, $this->username, $this->password, $this->database);
+      $this->link->set_charset("utf8");
+      $this->isConnected = true;
+
+    } catch (Exception $e) {
+
+      // Aquí manejamos la excepción
+      //echo "No se pudo establecer la conexión: " . $e->getMessage();
+    }
+  }
+
+  public function isConnected()
+  {
+    return $this->isConnected;
   }
 
   // Retorna datos solicitados

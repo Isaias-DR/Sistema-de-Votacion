@@ -1,4 +1,4 @@
-import { enviarValoresFetch } from "./obtenerRespuesta.js";
+import { enviarValoresFetch } from "./enviarValoresFetch.js";
 
 export const obtenerRegistros = async (nombreArchivo) => {
 
