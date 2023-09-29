@@ -3,7 +3,7 @@
 class ConexionPostgreSql
 {
   private $host = 'localhost';
-  private $database = 'desiss';
+  private $database = 'desis';
   private $user = 'postgres';
   private $password = 'root';
   private $isConnected = false;
