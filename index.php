@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <h1>Sistema de </h1>
+  <h1>Sistema de Votación</h1>
   <hr />
   <a href="v/votación.php">Sistema de votación</a><br />
 </body>
