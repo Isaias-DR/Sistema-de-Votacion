@@ -50,9 +50,9 @@ if ($database->isConnected() === false) {
 
 $pdo = $database->obtenerConexion();
 
-$sql0 = "SELECT obtener_cantidad_votos(:rut)";
+$sql0 = "SELECT obtener_cantidad_votos(:id_rut)";
 $stmt0 = $pdo->prepare($sql0);
-$stmt0->bindParam(':rut', $rutNumber, PDO::PARAM_INT);
+$stmt0->bindParam(':id_rut', $rutNumber, PDO::PARAM_INT);
 $stmt0->execute();
 // Ejecutar la consulta
 
@@ -72,15 +72,15 @@ if ($stmt0->fetchColumn() > 0) {
 }
 
 // Consulta SQL INSERT
-// $sql = "INSERT INTO voto (nombre, apellido, alias, rut, dv, email, region, comuna, candidato) VALUES (:nombre, :apellido , :alias, :rut, :dv, :email, :region, :comuna, :candidato)";
-$sql = "SELECT insertar_voto(:nombre, :apellido , :alias, :rut, :dv, :email, :region, :comuna, :fk_candidato)";
+// $sql = "INSERT INTO voto (nombre, apellido, alias, id_rut, dv, email, region, comuna, fk_candidato) VALUES (:nombre, :apellido , :alias, :id_rut, :dv, :email, :region, :comuna, :fk_candidato)";
+$sql = "SELECT insertar_voto(:nombre, :apellido , :alias, :id_rut, :dv, :email, :region, :comuna, :fk_candidato)";
 
 // Preparar la consulta
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':nombre', $nombre, PDO::PARAM_STR);
 $stmt->bindParam(':apellido', $apellido, PDO::PARAM_STR);
 $stmt->bindParam(':alias', $txtAlias, PDO::PARAM_STR);
-$stmt->bindParam(':rut', $rutNumber, PDO::PARAM_INT);
+$stmt->bindParam(':id_rut', $rutNumber, PDO::PARAM_INT);
 $stmt->bindParam(':dv', $rutDv, PDO::PARAM_STR);
 $stmt->bindParam(':email', $txtEmail, PDO::PARAM_STR);
 $stmt->bindParam(':region', $optRegion, PDO::PARAM_INT);
