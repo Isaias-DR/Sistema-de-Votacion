@@ -1,4 +1,149 @@
-Versiónes:
+Proceso de instalación del proyecto
 
-PHP: 5.5
-Base de datos (PostgresSQL): 16
+
+
+Contenido
+
+- Requisitos previos (línea 16)
+- Descarga del sistema de votación  (línea 25)
+- Creación y poblado de base de datos MySQL (línea 42)
+- Creación y poblado de base de datos PostgreSQL (línea 75)
+- Configuración de XAMPP (línea 124)
+- Versiones usadas (línea 146)
+
+
+
+Requisitos previos
+
+- Estar en un sistema operativo Windows (https://www.microsoft.com/es-es/software-download/windows11)
+- Tener instalado PostgresSQL y con ello pgAdmin4 (https://www.postgresql.org/download/)
+- Tener instalado XAMPP (https://www.apachefriends.org/es/index.html)
+- Tener instalado GitHub Desktop (https://desktop.github.com)
+
+
+
+Descarga del sistema de votación
+
+0 - Desde la aplicación GitHub desktop en la barra de menús buscar y dar clic al texto
+"File", se despliega un nuevo subnenú.
+
+1 - Buscar y dar clic al texto "Clone repository...", se muestra una nueva ventana con título 
+"Clone a repository".
+
+2 - En la pestaña "URL" en el campo con texto "URL or username/repository" pegar el texto sin
+comillas "https://github.com/Isaias-DR/Sistema-de-Votacion.git".
+
+3 - En el campo "Local path" pegar el texto "C:\xampp\htdocs\xampp\".
+
+4 - Dar clic al botón con texto "Clone", lo cual descarga el proyecto.
+
+
+
+Creación y poblado de base de datos MySQL
+
+0 - Abrir XAMPP que de forma predeterminada el ejecutador se encuentra en
+"C:\xampp\xampp-control.exe".
+
+1 - Desde el panel de XAMPP levantar la base de datos MySQL dándole clic al botón
+con nombre "Start" de la fila de MySQL.
+
+2 - Dar clic al botón "Admin" de la fila de MySQL (Se abre en el navegador web
+predeterminado el sitio http://localhost/phpmyadmin/).
+
+3 - Buscar y dar clic a la pestaña "Bases da datos" (Se carga su contenido).
+
+4 - En la sección "Crear base de datos" buscar el campo con que dentro tiene el texto
+"Nombre de la base de datos", darle clic e ingresar el nombre "desis". Apretar el botón
+con nombre “Crear” (Se carga una nueva interfaz).
+
+5 - Buscar y dar clic a la pestaña con nombre "Importar".
+
+6 - En la sección de "Archivo a importar:" apertar el botón "Seleccionar archivo",
+buscar dentro del sistema la ubicación del archivo la cual es
+“C:\xampp\htdocs\xampp\Sistema-de-Votacion\sql\MySQL.sql", ya encontrado
+seleccionarlo dando clic y apretar el botón con nombre "Abrir".
+
+7 - Buscar y dar clic al botón con nombre "Importar".
+
+8 - Listo ya tiene los datos requeridos para cargar las regiones y comunas en
+el formulario del voto. 
+
+9 - Dejar funcionando la base de datos MySQL. Puede cerrar la pestaña del navegador.
+
+
+
+Creación y poblado de base de datos PostgreSQL
+
+0 - Abrir pgAdmin4 que de forma predeterminada el ejecutador se encuentra en
+"C:\Program Files\PostgreSQL\16\pgAdmin 4\runtime\pgAdmin4.exe”.
+
+1 - Dentro de la aplicación buscar y dar doble clic el texto "Servers".
+
+2 - Ingresar la contraseña del usuario postgres y darle clic al botón con
+nombre "OK" (se desplegará unas 3 nuevas subsecciones).
+
+3 - Dar clic derecho a la subsección con nombre "Databases".
+
+4 - Ir cono el cursor al texto "Create", luego al texto "Database...",
+darle clic (aparece una ventana emergente con título "Create - Database").
+
+5 - En la pestaña General, en el campo de Database ingresar el nombre "desis".
+
+6 - Dar clic al botón con nombre "Save"
+(Se crea la base de datos y se despliega en el listado de "Databases").
+
+7 - Al nombre de la base de datos "desis" dar clic derecho, buscar el texto
+"Query Tool" y darle clic (Se abre una nueva pestaña con nombre
+"desis/postgres@PostgreSQL 16").
+
+8 - Buscar y dar clic al icono en forma de carpeta de color negro, que al momento de
+dejar el cursor sobre el muestra un texto "Open File".
+
+9 - Se abre una nueva ventana para buscar el archivo .sql, buscar dentro del
+sistema la ubicación del archivo, tiene que estar en
+“C:\xampp\htdocs\xampp\Sistema-de-Votacion\sql\PostgreSQL.sql",
+ya encontrado seleccionarlo dándole clic y apretar el botón con nombre "Abrir"
+(Se cierra tal ventana y carga el contenido del archivo).
+
+10 - Seleccionar todo el contenido con el cursor desde el comienzo hasta el
+final de lo que cargó.
+
+11 - Buscar y dar clic al icono en forma de play de color negro, que al momento de
+dejar el cursor sobre el muestra un texto "Execute/Refresh".
+
+12 - Aparece una notificación emergente de color verde claro con el texto
+"Successfully run."
+
+13 - Listo ya están los datos requeridos para cargar los candidatos y
+guardar el voto el formulario.
+
+14 - Dejar funcionando la base de datos PostgreSQL.
+
+
+
+Configuración de XAMPP
+
+0 - En Windows dirigirse a la carpeta "C:\xampp\php\" abrir con un editor de texto el
+archivo "php.ini", buscar el texto ";extension=pdo_pgsql", quitarle el punto y coma
+para habilitar el driver que conecta a la base de datos PostgreSQL
+(en tres puestos mas arriba esta la extensión para el driver para conectarse a la
+base de datos MySQL "extension=pdo_mysql", no tiene que tener también el punto y coma)
+guardar los cambios en el archivo.
+
+
+
+Tener disponible el sistema de votación
+
+0 - Desde el panel de XAMPP levantar el servidor dando clic al botón
+con nombre "Start" en la fila de Apache.
+
+1 - Desde un navegador web acceder a la URL "http://localhost/xampp/Sistema-de-Votacion/v/votación.php".
+
+2 - Listo ya tiene acceso completo al sistema de votación.
+
+
+
+Versiones usadas:
+- Código PHP: 5.5
+- Base de datos PostgresSQL: 16
+- Base de datos MySQL: 15.1

@@ -87,6 +87,8 @@ $stmt->bindParam(':region', $optRegion, PDO::PARAM_INT);
 $stmt->bindParam(':comuna', $optComuna, PDO::PARAM_INT);
 $stmt->bindParam(':fk_candidato', $optCandidato, PDO::PARAM_INT);
 
+// TODO: Validar la cantidad de caracteres o digitos de las variables.
+
 // Ejecutar la consulta
 if ($stmt->execute()) {
 
