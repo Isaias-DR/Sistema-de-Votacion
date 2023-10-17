@@ -115,8 +115,8 @@ CREATE TABLE public.voto (
     apellido character(50) NOT NULL,
     alias character(50) NOT NULL,
     email character(70) NOT NULL,
-    region numeric(2,0) NOT NULL,
-    comuna numeric(2,0) NOT NULL,
+    region numeric(11,0) NOT NULL,
+    comuna numeric(11,0) NOT NULL,
     fk_candidato numeric(2,0) NOT NULL
 );
 
