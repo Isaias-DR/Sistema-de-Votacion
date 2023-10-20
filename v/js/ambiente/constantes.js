@@ -1,6 +1,6 @@
 export const AMBIENTE =
   'producción'
-  //'desarrollo'
+  // 'desarrollo'
   ;
 const URL_SERVICIO =
   'http://localhost/xampp/Sistema-de-Votacion/'

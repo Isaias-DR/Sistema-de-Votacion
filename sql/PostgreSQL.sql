@@ -84,7 +84,7 @@ SET default_table_access_method = heap;
 
 CREATE TABLE public.candidato (
     id_candidato numeric(2,0) NOT NULL,
-    nombre character(20) NOT NULL
+    nombre character varying(20) NOT NULL
 );
 
 
@@ -97,7 +97,7 @@ ALTER TABLE public.candidato OWNER TO postgres;
 
 CREATE TABLE public.nosotro (
     id_nosotro numeric(1,0) NOT NULL,
-    nombre character(20) NOT NULL
+    nombre character varying(20) NOT NULL
 );
 
 
@@ -110,11 +110,11 @@ ALTER TABLE public.nosotro OWNER TO postgres;
 
 CREATE TABLE public.voto (
     id_rut numeric(8,0) NOT NULL,
-    dv character(1) NOT NULL,
-    nombre character(50) NOT NULL,
-    apellido character(50) NOT NULL,
-    alias character(50) NOT NULL,
-    email character(70) NOT NULL,
+    dv character varying(1) NOT NULL,
+    nombre character varying(50) NOT NULL,
+    apellido character varying(50) NOT NULL,
+    alias character varying(50) NOT NULL,
+    email character varying(70) NOT NULL,
     region numeric(11,0) NOT NULL,
     comuna numeric(11,0) NOT NULL,
     fk_candidato numeric(2,0) NOT NULL

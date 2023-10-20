@@ -6,7 +6,15 @@ SELECT fk_rut, fk_nosotro, n.nombre
 	JOIN public.nosotro n ON n.id_nosotro = vn.fk_nosotro
 	ORDER BY fk_rut
 ;
+
 /*
 DELETE FROM public.voto_nosotro;
 DELETE FROM public.voto;
 */
+
+SELECT id_candidato, nombre
+	FROM public.candidato
+;
+SELECT id_nosotro, nombre
+	FROM public.nosotro
+;
